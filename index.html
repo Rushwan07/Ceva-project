@@ -1,430 +1,1013 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>CEVA S.H.I.E.L.D. — Choose Your Language</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&family=Noto+Sans+Devanagari:wght@700&family=Noto+Sans+Tamil:wght@700&family=Noto+Sans+Telugu:wght@700&family=Noto+Sans+Gujarati:wght@700&display=swap');
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CEVA S.H.I.E.L.D. — Choose Your Language</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&family=Noto+Sans+Devanagari:wght@700&family=Noto+Sans+Tamil:wght@700&family=Noto+Sans+Telugu:wght@700&family=Noto+Sans+Gujarati:wght@700&display=swap");
 
-  :root{
-    --navy:#0e1f45;
-    --navy-deep:#081530;
-    --red:#e2231a;
-    --paper:#f4f6f9;
-    --line:#d7dce6;
-    --sub:#5a6478;
-  }
-  *{ font-family:'Poppins', system-ui, sans-serif; }
-  .script{ font-family:'Noto Sans Devanagari','Noto Sans Tamil','Noto Sans Telugu','Noto Sans Gujarati','Poppins',sans-serif; }
+      :root {
+        --navy: #0e1f45;
+        --navy-deep: #081530;
+        --red: #e2231a;
+        --paper: #f4f6f9;
+        --line: #d7dce6;
+        --sub: #5a6478;
+      }
+      * {
+        font-family: "Poppins", system-ui, sans-serif;
+      }
+      .script {
+        font-family:
+          "Noto Sans Devanagari", "Noto Sans Tamil", "Noto Sans Telugu",
+          "Noto Sans Gujarati", "Poppins", sans-serif;
+      }
 
-  body{
-    background:
-      radial-gradient(circle at 50% 0%, rgba(14,31,69,0.04), transparent 55%),
-      var(--paper);
-  }
+      body {
+        background:
+          radial-gradient(
+            circle at 50% 0%,
+            rgba(14, 31, 69, 0.04),
+            transparent 55%
+          ),
+          var(--paper);
+      }
 
-  .panel{
-    background:#fff;
-    border:2px solid var(--navy);
-    border-radius:20px;
-  }
+      .panel {
+        background: #fff;
+        border: 2px solid var(--navy);
+        border-radius: 20px;
+      }
 
-  .lang-card{
-    background:#fff;
-    border:1.5px solid var(--line);
-    border-radius:14px;
-    transition: border-color .18s ease, box-shadow .18s ease, transform .12s ease;
-  }
-  .lang-card:hover{
-    border-color: var(--navy);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 22px -12px rgba(14,31,69,0.35);
-  }
-  .lang-card.active{
-    border-color: var(--red);
-    box-shadow: 0 0 0 2px var(--red), 0 12px 24px -10px rgba(226,35,26,0.35);
-  }
-  .lang-card.active .globe-icon{ color: var(--red); }
+      .lang-card {
+        background: #fff;
+        border: 1.5px solid var(--line);
+        border-radius: 14px;
+        transition:
+          border-color 0.18s ease,
+          box-shadow 0.18s ease,
+          transform 0.12s ease;
+      }
+      .lang-card:hover {
+        border-color: var(--navy);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 22px -12px rgba(14, 31, 69, 0.35);
+      }
+      .lang-card.active {
+        border-color: var(--red);
+        box-shadow:
+          0 0 0 2px var(--red),
+          0 12px 24px -10px rgba(226, 35, 26, 0.35);
+      }
+      .lang-card.active .globe-icon {
+        color: var(--red);
+      }
 
-  .globe-icon{ color: var(--navy); transition: color .18s ease; }
+      .globe-icon {
+        color: var(--navy);
+        transition: color 0.18s ease;
+      }
 
-  .play-btn{
-    background: var(--navy);
-    color:#fff;
-    transition: background .18s ease, transform .1s ease;
-  }
-  .play-btn:hover{ background: var(--navy-deep); }
-  .play-btn:active{ transform: scale(.97); }
-  .play-btn .dot{
-    background: var(--red);
-  }
+      .play-btn {
+        background: var(--navy);
+        color: #fff;
+        transition:
+          background 0.18s ease,
+          transform 0.1s ease;
+      }
+      .play-btn:hover {
+        background: var(--navy-deep);
+      }
+      .play-btn:active {
+        transform: scale(0.97);
+      }
+      .play-btn .dot {
+        background: var(--red);
+      }
 
-  .strip-header{
-    background: var(--navy);
-  }
+      .strip-header {
+        background: var(--navy);
+      }
 
-  #videoWrap{ transition: opacity .25s ease, transform .25s ease; }
-  #videoWrap.fading{ opacity:.4; transform: scale(.995); }
+      #videoWrap {
+        transition:
+          opacity 0.25s ease,
+          transform 0.25s ease;
+      }
+      #videoWrap.fading {
+        opacity: 0.4;
+        transform: scale(0.995);
+      }
 
-  .ribbon{
-    background: var(--red);
-    clip-path: polygon(0 0, 100% 0, 100% 78%, 50% 100%, 0 78%);
-  }
+      .ribbon {
+        background: var(--red);
+        clip-path: polygon(0 0, 100% 0, 100% 78%, 50% 100%, 0 78%);
+      }
 
-  .pulse-dot{
-    box-shadow: 0 0 0 0 rgba(226,35,26,0.55);
-    animation: pulse 2s infinite;
-  }
-  @keyframes pulse{
-    0%{ box-shadow: 0 0 0 0 rgba(226,35,26,0.55); }
-    70%{ box-shadow: 0 0 0 6px rgba(226,35,26,0); }
-    100%{ box-shadow: 0 0 0 0 rgba(226,35,26,0); }
-  }
+      .pulse-dot {
+        box-shadow: 0 0 0 0 rgba(226, 35, 26, 0.55);
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(226, 35, 26, 0.55);
+        }
+        70% {
+          box-shadow: 0 0 0 6px rgba(226, 35, 26, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(226, 35, 26, 0);
+        }
+      }
 
-  /* ---- Hero section decoration ---- */
-  .hero-wrap{ isolation:isolate; }
-  .map-dots{
-    position:absolute;
-    top:-20px;
-    width:260px;
-    height:200px;
-    background-image: radial-gradient(circle, #ccd3de 1.1px, transparent 1.4px);
-    background-size: 10px 10px;
-    -webkit-mask-image:
-      radial-gradient(circle at 30% 20%, #000 0%, #000 12%, transparent 45%),
-      radial-gradient(circle at 65% 15%, #000 0%, #000 10%, transparent 40%),
-      radial-gradient(circle at 45% 45%, #000 0%, #000 16%, transparent 50%),
-      radial-gradient(circle at 20% 60%, #000 0%, #000 10%, transparent 42%),
-      radial-gradient(circle at 70% 65%, #000 0%, #000 12%, transparent 45%),
-      radial-gradient(circle at 40% 85%, #000 0%, #000 10%, transparent 40%);
-    mask-image:
-      radial-gradient(circle at 30% 20%, #000 0%, #000 12%, transparent 45%),
-      radial-gradient(circle at 65% 15%, #000 0%, #000 10%, transparent 40%),
-      radial-gradient(circle at 45% 45%, #000 0%, #000 16%, transparent 50%),
-      radial-gradient(circle at 20% 60%, #000 0%, #000 10%, transparent 42%),
-      radial-gradient(circle at 70% 65%, #000 0%, #000 12%, transparent 45%),
-      radial-gradient(circle at 40% 85%, #000 0%, #000 10%, transparent 40%);
-    opacity: .6;
-    z-index: 0;
-    pointer-events: none;
-  }
-  .map-dots-left{ left:-40px; }
-  .map-dots-right{ right:-40px; }
-  @media (max-width: 640px){
-    .map-dots{ width:150px; height:120px; opacity:.4; }
-    .map-dots-left{ left:-25px; }
-    .map-dots-right{ right:-25px; }
-  }
+      /* ---- Hero section decoration ---- */
+      .hero-wrap {
+        isolation: isolate;
+      }
+      .map-dots {
+        position: absolute;
+        top: -20px;
+        width: 260px;
+        height: 200px;
+        background-image: radial-gradient(
+          circle,
+          #ccd3de 1.1px,
+          transparent 1.4px
+        );
+        background-size: 10px 10px;
+        -webkit-mask-image:
+          radial-gradient(
+            circle at 30% 20%,
+            #000 0%,
+            #000 12%,
+            transparent 45%
+          ),
+          radial-gradient(
+            circle at 65% 15%,
+            #000 0%,
+            #000 10%,
+            transparent 40%
+          ),
+          radial-gradient(
+            circle at 45% 45%,
+            #000 0%,
+            #000 16%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 20% 60%,
+            #000 0%,
+            #000 10%,
+            transparent 42%
+          ),
+          radial-gradient(
+            circle at 70% 65%,
+            #000 0%,
+            #000 12%,
+            transparent 45%
+          ),
+          radial-gradient(circle at 40% 85%, #000 0%, #000 10%, transparent 40%);
+        mask-image:
+          radial-gradient(
+            circle at 30% 20%,
+            #000 0%,
+            #000 12%,
+            transparent 45%
+          ),
+          radial-gradient(
+            circle at 65% 15%,
+            #000 0%,
+            #000 10%,
+            transparent 40%
+          ),
+          radial-gradient(
+            circle at 45% 45%,
+            #000 0%,
+            #000 16%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 20% 60%,
+            #000 0%,
+            #000 10%,
+            transparent 42%
+          ),
+          radial-gradient(
+            circle at 70% 65%,
+            #000 0%,
+            #000 12%,
+            transparent 45%
+          ),
+          radial-gradient(circle at 40% 85%, #000 0%, #000 10%, transparent 40%);
+        opacity: 0.6;
+        z-index: 0;
+        pointer-events: none;
+      }
+      .map-dots-left {
+        left: -40px;
+      }
+      .map-dots-right {
+        right: -40px;
+      }
+      @media (max-width: 640px) {
+        .map-dots {
+          width: 150px;
+          height: 120px;
+          opacity: 0.4;
+        }
+        .map-dots-left {
+          left: -25px;
+        }
+        .map-dots-right {
+          right: -25px;
+        }
+      }
 
-  .shield-item{ position:relative; }
-</style>
-</head>
-<body class="min-h-screen py-6 px-3 sm:py-10 sm:px-6">
+      .shield-item {
+        position: relative;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen py-6 px-3 sm:py-10 sm:px-6">
+    <div class="max-w-5xl mx-auto">
+      <!-- Hero Section -->
+      <div
+        class="hero-wrap relative overflow-hidden mb-6 sm:mb-8 pt-5 pb-6 sm:pt-6 sm:pb-8"
+      >
+        <!-- decorative world-map dot patterns -->
+        <div class="map-dots map-dots-left"></div>
+        <div class="map-dots map-dots-right"></div>
 
-  <div class="max-w-5xl mx-auto">
-
-    <!-- Hero Section -->
-    <div class="hero-wrap relative overflow-hidden mb-6 sm:mb-8 pt-5 pb-6 sm:pt-6 sm:pb-8">
-
-      <!-- decorative world-map dot patterns -->
-      <div class="map-dots map-dots-left"></div>
-      <div class="map-dots map-dots-right"></div>
-
-      <!-- Logo top-right -->
-      <div class="relative flex justify-end mb-1 sm:mb-2">
-        <img src="data:image/png;base64,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" alt="CEVA Logistics" class="h-9 sm:h-11 w-auto" />
-      </div>
-
-      <!-- Title -->
-      <div class="relative text-center px-2">
-        <h1 class="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight leading-none">
-          <span style="color:var(--navy)">CEVA</span>
-          <span style="color:var(--red)">S.H.I.E.L.D.</span>
-        </h1>
-        <div class="flex items-center justify-center gap-3 sm:gap-4 mt-3">
-          <span class="h-[2px] w-8 sm:w-14" style="background:var(--red)"></span>
-          <p class="text-xs sm:text-base font-extrabold tracking-[0.1em] sm:tracking-[0.15em] uppercase whitespace-nowrap" style="color:var(--navy)">
-            A New Standard in Safety Induction
-          </p>
-          <span class="h-[2px] w-8 sm:w-14" style="background:var(--red)"></span>
+        <!-- Logo top-right -->
+        <div class="relative flex justify-end mb-1 sm:mb-2">
+          <img
+            src="data:image/png;base64,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"
+            alt="CEVA Logistics"
+            class="h-9 sm:h-11 w-auto"
+          />
         </div>
-      </div>
 
-      <!-- SHIELD acronym row -->
-      <div class="shield-row relative mt-6 sm:mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-y-5 gap-x-2 px-2 sm:px-4 max-w-4xl mx-auto">
-        <div class="shield-item flex items-start gap-2.5 sm:justify-self-center">
-          <div class="relative w-9 h-9 sm:w-10 sm:h-10 shrink-0">
-            <svg class="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="1.6">
-              <path d="M12 2 4 5v6c0 5.25 3.44 9.86 8 11 4.56-1.14 8-5.75 8-11V5l-8-3z"/>
-            </svg>
-            <span class="absolute inset-0 flex items-center justify-center pb-1 font-black text-sm sm:text-base" style="color:var(--navy)">S</span>
-          </div>
-          <div class="pl-1">
-            <p class="text-[11px] sm:text-xs font-extrabold uppercase leading-tight" style="color:var(--red)">Safety</p>
-            <p class="text-[10px] sm:text-[11px] leading-snug mt-0.5" style="color:var(--sub)">We put safety first in everything we do.</p>
-          </div>
-        </div>
-        <div class="shield-item flex items-start gap-2.5 sm:justify-self-center lg:border-l lg:border-[#d7dce6] lg:pl-3">
-          <div class="pl-1">
-            <p class="text-[11px] sm:text-xs font-extrabold uppercase leading-tight" style="color:var(--red)">Hazard Awareness</p>
-            <p class="text-[10px] sm:text-[11px] leading-snug mt-0.5" style="color:var(--sub)">We identify hazards and understand risks.</p>
-          </div>
-        </div>
-        <div class="shield-item flex items-start gap-2.5 sm:justify-self-center lg:border-l lg:border-[#d7dce6] lg:pl-3">
-          <div class="pl-1">
-            <p class="text-[11px] sm:text-xs font-extrabold uppercase leading-tight" style="color:var(--red)">Intervention</p>
-            <p class="text-[10px] sm:text-[11px] leading-snug mt-0.5" style="color:var(--sub)">We speak up and act to prevent incidents.</p>
+        <!-- Title -->
+        <div class="relative text-center px-2">
+          <h1
+            class="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight leading-none"
+          >
+            <span style="color: var(--navy)">CEVA</span>
+            <span style="color: var(--red)">S.H.I.E.L.D.</span>
+          </h1>
+          <div class="flex items-center justify-center gap-3 sm:gap-4 mt-3">
+            <span
+              class="h-[2px] w-8 sm:w-14"
+              style="background: var(--red)"
+            ></span>
+            <p
+              class="text-xs sm:text-base font-extrabold tracking-[0.1em] sm:tracking-[0.15em] uppercase whitespace-nowrap"
+              style="color: var(--navy)"
+            >
+              A New Standard in Safety Induction
+            </p>
+            <span
+              class="h-[2px] w-8 sm:w-14"
+              style="background: var(--red)"
+            ></span>
           </div>
         </div>
-        <div class="shield-item flex items-start gap-2.5 sm:justify-self-center lg:border-l lg:border-[#d7dce6] lg:pl-3">
-          <div class="pl-1">
-            <p class="text-[11px] sm:text-xs font-extrabold uppercase leading-tight" style="color:var(--red)">Engagement</p>
-            <p class="text-[10px] sm:text-[11px] leading-snug mt-0.5" style="color:var(--sub)">We involve and look out for each other.</p>
+
+        <!-- SHIELD acronym row -->
+        <div
+          class="shield-row relative mt-6 sm:mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-y-5 gap-x-2 px-2 sm:px-4 max-w-4xl mx-auto"
+        >
+          <div
+            class="shield-item flex items-start gap-2.5 sm:justify-self-center"
+          >
+            <div class="relative w-9 h-9 sm:w-10 sm:h-10 shrink-0">
+              <svg
+                class="w-full h-full"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--navy)"
+                stroke-width="1.6"
+              >
+                <path
+                  d="M12 2 4 5v6c0 5.25 3.44 9.86 8 11 4.56-1.14 8-5.75 8-11V5l-8-3z"
+                />
+              </svg>
+              <span
+                class="absolute inset-0 flex items-center justify-center pb-1 font-black text-sm sm:text-base"
+                style="color: var(--navy)"
+                >S</span
+              >
+            </div>
+            <div class="pl-1">
+              <p
+                class="text-[11px] sm:text-xs font-extrabold uppercase leading-tight"
+                style="color: var(--red)"
+              >
+                Safety
+              </p>
+              <p
+                class="text-[10px] sm:text-[11px] leading-snug mt-0.5"
+                style="color: var(--sub)"
+              >
+                We put safety first in everything we do.
+              </p>
+            </div>
+          </div>
+          <div
+            class="shield-item flex items-start gap-2.5 sm:justify-self-center lg:border-l lg:border-[#d7dce6] lg:pl-3"
+          >
+            <div class="relative w-9 h-9 sm:w-10 sm:h-10 shrink-0">
+              <svg
+                class="w-full h-full"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--navy)"
+                stroke-width="1.6"
+              >
+                <path
+                  d="M12 2 4 5v6c0 5.25 3.44 9.86 8 11 4.56-1.14 8-5.75 8-11V5l-8-3z"
+                />
+              </svg>
+              <span
+                class="absolute inset-0 flex items-center justify-center pb-1 font-black text-sm sm:text-base"
+                style="color: var(--navy)"
+                >H</span
+              >
+            </div>
+            <div class="pl-1">
+              <p
+                class="text-[11px] sm:text-xs font-extrabold uppercase leading-tight"
+                style="color: var(--red)"
+              >
+                Hazard Awareness
+              </p>
+              <p
+                class="text-[10px] sm:text-[11px] leading-snug mt-0.5"
+                style="color: var(--sub)"
+              >
+                We identify hazards and understand risks.
+              </p>
+            </div>
+          </div>
+          <div
+            class="shield-item flex items-start gap-2.5 sm:justify-self-center lg:border-l lg:border-[#d7dce6] lg:pl-3"
+          >
+            <div class="relative w-9 h-9 sm:w-10 sm:h-10 shrink-0">
+              <svg
+                class="w-full h-full"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--navy)"
+                stroke-width="1.6"
+              >
+                <path
+                  d="M12 2 4 5v6c0 5.25 3.44 9.86 8 11 4.56-1.14 8-5.75 8-11V5l-8-3z"
+                />
+              </svg>
+              <span
+                class="absolute inset-0 flex items-center justify-center pb-1 font-black text-sm sm:text-base"
+                style="color: var(--navy)"
+                >I</span
+              >
+            </div>
+            <div class="pl-1">
+              <p
+                class="text-[11px] sm:text-xs font-extrabold uppercase leading-tight"
+                style="color: var(--red)"
+              >
+                Intervention
+              </p>
+              <p
+                class="text-[10px] sm:text-[11px] leading-snug mt-0.5"
+                style="color: var(--sub)"
+              >
+                We speak up and act to prevent incidents.
+              </p>
+            </div>
+          </div>
+          <div
+            class="shield-item flex items-start gap-2.5 sm:justify-self-center lg:border-l lg:border-[#d7dce6] lg:pl-3"
+          >
+            <div class="relative w-9 h-9 sm:w-10 sm:h-10 shrink-0">
+              <svg
+                class="w-full h-full"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--navy)"
+                stroke-width="1.6"
+              >
+                <path
+                  d="M12 2 4 5v6c0 5.25 3.44 9.86 8 11 4.56-1.14 8-5.75 8-11V5l-8-3z"
+                />
+              </svg>
+              <span
+                class="absolute inset-0 flex items-center justify-center pb-1 font-black text-sm sm:text-base"
+                style="color: var(--navy)"
+                >E</span
+              >
+            </div>
+            <div class="pl-1">
+              <p
+                class="text-[11px] sm:text-xs font-extrabold uppercase leading-tight"
+                style="color: var(--red)"
+              >
+                Engagement
+              </p>
+              <p
+                class="text-[10px] sm:text-[11px] leading-snug mt-0.5"
+                style="color: var(--sub)"
+              >
+                We involve and look out for each other.
+              </p>
+            </div>
+          </div>
+          <div
+            class="shield-item flex items-start gap-2.5 sm:justify-self-center lg:border-l lg:border-[#d7dce6] lg:pl-3"
+          >
+            <div class="relative w-9 h-9 sm:w-10 sm:h-10 shrink-0">
+              <svg
+                class="w-full h-full"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--navy)"
+                stroke-width="1.6"
+              >
+                <path
+                  d="M12 2 4 5v6c0 5.25 3.44 9.86 8 11 4.56-1.14 8-5.75 8-11V5l-8-3z"
+                />
+              </svg>
+              <span
+                class="absolute inset-0 flex items-center justify-center pb-1 font-black text-sm sm:text-base"
+                style="color: var(--navy)"
+                >L</span
+              >
+            </div>
+            <div class="pl-1">
+              <p
+                class="text-[11px] sm:text-xs font-extrabold uppercase leading-tight"
+                style="color: var(--red)"
+              >
+                Learning
+              </p>
+              <p
+                class="text-[10px] sm:text-[11px] leading-snug mt-0.5"
+                style="color: var(--sub)"
+              >
+                We learn, improve and share knowledge.
+              </p>
+            </div>
+          </div>
+          <div
+            class="shield-item flex items-start gap-2.5 sm:justify-self-center lg:border-l lg:border-[#d7dce6] lg:pl-3"
+          >
+            <div class="relative w-9 h-9 sm:w-10 sm:h-10 shrink-0">
+              <svg
+                class="w-full h-full"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--navy)"
+                stroke-width="1.6"
+              >
+                <path
+                  d="M12 2 4 5v6c0 5.25 3.44 9.86 8 11 4.56-1.14 8-5.75 8-11V5l-8-3z"
+                />
+              </svg>
+              <span
+                class="absolute inset-0 flex items-center justify-center pb-1 font-black text-sm sm:text-base"
+                style="color: var(--navy)"
+                >D</span
+              >
+            </div>
+            <div class="pl-1">
+              <p
+                class="text-[11px] sm:text-xs font-extrabold uppercase leading-tight"
+                style="color: var(--red)"
+              >
+                Discipline
+              </p>
+              <p
+                class="text-[10px] sm:text-[11px] leading-snug mt-0.5"
+                style="color: var(--sub)"
+              >
+                We follow standards and stay consistent.
+              </p>
+            </div>
           </div>
         </div>
-        <div class="shield-item flex items-start gap-2.5 sm:justify-self-center lg:border-l lg:border-[#d7dce6] lg:pl-3">
-          <div class="pl-1">
-            <p class="text-[11px] sm:text-xs font-extrabold uppercase leading-tight" style="color:var(--red)">Learning</p>
-            <p class="text-[10px] sm:text-[11px] leading-snug mt-0.5" style="color:var(--sub)">We learn, improve and share knowledge.</p>
-          </div>
+
+        <!-- Divider with shield-check -->
+        <div
+          class="relative flex items-center justify-center gap-3 sm:gap-4 mt-6 sm:mt-7 max-w-md mx-auto px-4"
+        >
+          <span class="h-[1.5px] flex-1" style="background: var(--red)"></span>
+          <svg
+            class="w-6 h-6 sm:w-7 sm:h-7 shrink-0"
+            viewBox="0 0 24 24"
+            fill="var(--navy)"
+          >
+            <path
+              d="M12 1 3 4.5v6.3C3 16.7 6.8 21.7 12 23c5.2-1.3 9-6.3 9-12.2V4.5L12 1z"
+            />
+            <path
+              d="M9.2 12.3l1.9 1.9 4-4"
+              stroke="#fff"
+              stroke-width="1.6"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span class="h-[1.5px] flex-1" style="background: var(--red)"></span>
         </div>
-        <div class="shield-item flex items-start gap-2.5 sm:justify-self-center lg:border-l lg:border-[#d7dce6] lg:pl-3">
-          <div class="pl-1">
-            <p class="text-[11px] sm:text-xs font-extrabold uppercase leading-tight" style="color:var(--red)">Discipline</p>
-            <p class="text-[10px] sm:text-[11px] leading-snug mt-0.5" style="color:var(--sub)">We follow standards and stay consistent.</p>
-          </div>
-        </div>
-      </div>
 
-      <!-- Divider with shield-check -->
-      <div class="relative flex items-center justify-center gap-3 sm:gap-4 mt-6 sm:mt-7 max-w-md mx-auto px-4">
-        <span class="h-[1.5px] flex-1" style="background:var(--red)"></span>
-        <svg class="w-6 h-6 sm:w-7 sm:h-7 shrink-0" viewBox="0 0 24 24" fill="var(--navy)">
-          <path d="M12 1 3 4.5v6.3C3 16.7 6.8 21.7 12 23c5.2-1.3 9-6.3 9-12.2V4.5L12 1z"/>
-          <path d="M9.2 12.3l1.9 1.9 4-4" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <span class="h-[1.5px] flex-1" style="background:var(--red)"></span>
-      </div>
-
-      <p class="relative text-center mt-3 sm:mt-4 text-sm sm:text-base font-extrabold uppercase tracking-wide">
-        <span style="color:var(--navy)">Because</span> <span style="color:var(--red)">Safety Starts With You.</span>
-      </p>
-
-      <div class="relative flex justify-center mt-3">
-        <span class="inline-flex items-center gap-1.5 text-white text-[11px] sm:text-sm font-bold uppercase tracking-wide rounded-md px-4 sm:px-5 py-2" style="background:var(--navy)">
-          One Team. One Standard. <span style="color:#ff8f84">Zero Harm.</span>
-        </span>
-      </div>
-
-    </div>
-
-    <!-- Main panel -->
-    <div class="panel p-3 sm:p-6">
-
-      <!-- Strip header -->
-      <div class="strip-header rounded-xl flex items-center gap-2.5 sm:gap-3 px-3.5 sm:px-5 py-3 sm:py-3.5 mb-4 sm:mb-6">
-        <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white shrink-0" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="9"/>
-          <path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z"/>
-        </svg>
-        <p class="text-white font-bold text-[11px] sm:text-sm uppercase tracking-wide leading-tight">
-          Choose your language in which you want <span style="color:#ff9d8a">induction audio</span> to be played
+        <p
+          class="relative text-center mt-3 sm:mt-4 text-sm sm:text-base font-extrabold uppercase tracking-wide"
+        >
+          <span style="color: var(--navy)">Because</span>
+          <span style="color: var(--red)">Safety Starts With You.</span>
         </p>
-      </div>
 
-      <!-- Language Cards -->
-      <div id="languageBoxes" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-3.5">
-        <button type="button" data-lang="english" class="lang-card group px-3 py-4 sm:py-5 flex flex-col items-center gap-2.5">
-          <svg class="globe-icon w-8 h-8 sm:w-9 sm:h-9" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z"/>
-          </svg>
-          <span class="text-center leading-tight">
-            <span class="block text-sm sm:text-base font-extrabold" style="color:var(--navy)">ENGLISH</span>
-            <span class="block text-xs sm:text-sm font-medium" style="color:var(--sub)">English</span>
+        <div class="relative flex justify-center mt-3">
+          <span
+            class="inline-flex items-center gap-1.5 text-white text-[11px] sm:text-sm font-bold uppercase tracking-wide rounded-md px-4 sm:px-5 py-2"
+            style="background: var(--navy)"
+          >
+            One Team. One Standard.
+            <span style="color: #ff8f84">Zero Harm.</span>
           </span>
-          <span class="play-btn w-full rounded-lg py-1.5 sm:py-2 text-[11px] sm:text-xs font-bold tracking-wide flex items-center justify-center gap-2 mt-1">
-            PLAY VIDEO
-            <span class="dot w-4 h-4 rounded-full flex items-center justify-center">
-              <svg class="w-2 h-2 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </span>
-          </span>
-        </button>
-
-        <button type="button" data-lang="hindi" class="lang-card group px-3 py-4 sm:py-5 flex flex-col items-center gap-2.5">
-          <svg class="globe-icon w-8 h-8 sm:w-9 sm:h-9" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z"/>
-          </svg>
-          <span class="text-center leading-tight">
-            <span class="block text-sm sm:text-base font-extrabold" style="color:var(--navy)">HINDI</span>
-            <span class="script block text-xs sm:text-sm font-semibold" style="color:var(--sub)">हिन्दी</span>
-          </span>
-          <span class="play-btn w-full rounded-lg py-1.5 sm:py-2 text-[11px] sm:text-xs font-bold tracking-wide flex items-center justify-center gap-2 mt-1">
-            PLAY VIDEO
-            <span class="dot w-4 h-4 rounded-full flex items-center justify-center">
-              <svg class="w-2 h-2 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </span>
-          </span>
-        </button>
-
-        <button type="button" data-lang="marathi" class="lang-card group px-3 py-4 sm:py-5 flex flex-col items-center gap-2.5">
-          <svg class="globe-icon w-8 h-8 sm:w-9 sm:h-9" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z"/>
-          </svg>
-          <span class="text-center leading-tight">
-            <span class="block text-sm sm:text-base font-extrabold" style="color:var(--navy)">MARATHI</span>
-            <span class="script block text-xs sm:text-sm font-semibold" style="color:var(--sub)">मराठी</span>
-          </span>
-          <span class="play-btn w-full rounded-lg py-1.5 sm:py-2 text-[11px] sm:text-xs font-bold tracking-wide flex items-center justify-center gap-2 mt-1">
-            PLAY VIDEO
-            <span class="dot w-4 h-4 rounded-full flex items-center justify-center">
-              <svg class="w-2 h-2 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </span>
-          </span>
-        </button>
-
-        <button type="button" data-lang="gujarati" class="lang-card group px-3 py-4 sm:py-5 flex flex-col items-center gap-2.5">
-          <svg class="globe-icon w-8 h-8 sm:w-9 sm:h-9" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z"/>
-          </svg>
-          <span class="text-center leading-tight">
-            <span class="block text-sm sm:text-base font-extrabold" style="color:var(--navy)">GUJARATI</span>
-            <span class="script block text-xs sm:text-sm font-semibold" style="color:var(--sub)">ગુજરાતી</span>
-          </span>
-          <span class="play-btn w-full rounded-lg py-1.5 sm:py-2 text-[11px] sm:text-xs font-bold tracking-wide flex items-center justify-center gap-2 mt-1">
-            PLAY VIDEO
-            <span class="dot w-4 h-4 rounded-full flex items-center justify-center">
-              <svg class="w-2 h-2 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </span>
-          </span>
-        </button>
-
-        <button type="button" data-lang="tamil" class="lang-card group px-3 py-4 sm:py-5 flex flex-col items-center gap-2.5">
-          <svg class="globe-icon w-8 h-8 sm:w-9 sm:h-9" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z"/>
-          </svg>
-          <span class="text-center leading-tight">
-            <span class="block text-sm sm:text-base font-extrabold" style="color:var(--navy)">TAMIL</span>
-            <span class="script block text-xs sm:text-sm font-semibold" style="color:var(--sub)">தமிழ்</span>
-          </span>
-          <span class="play-btn w-full rounded-lg py-1.5 sm:py-2 text-[11px] sm:text-xs font-bold tracking-wide flex items-center justify-center gap-2 mt-1">
-            PLAY VIDEO
-            <span class="dot w-4 h-4 rounded-full flex items-center justify-center">
-              <svg class="w-2 h-2 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </span>
-          </span>
-        </button>
-
-        <button type="button" data-lang="telugu" class="lang-card group px-3 py-4 sm:py-5 flex flex-col items-center gap-2.5">
-          <svg class="globe-icon w-8 h-8 sm:w-9 sm:h-9" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z"/>
-          </svg>
-          <span class="text-center leading-tight">
-            <span class="block text-sm sm:text-base font-extrabold" style="color:var(--navy)">Kannada</span>
-            <span class="script block text-xs sm:text-sm font-semibold" style="color:var(--sub)">ಕನ್ನಡ</span>
-          </span>
-          <span class="play-btn w-full rounded-lg py-1.5 sm:py-2 text-[11px] sm:text-xs font-bold tracking-wide flex items-center justify-center gap-2 mt-1">
-            PLAY VIDEO
-            <span class="dot w-4 h-4 rounded-full flex items-center justify-center">
-              <svg class="w-2 h-2 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </span>
-          </span>
-        </button>
-      </div>
-
-      <!-- Video Player -->
-      <div id="playerSection" class="mt-6 sm:mt-8">
-        <div id="videoWrap" class="rounded-xl overflow-hidden bg-black border-2" style="border-color:var(--navy);">
-          <video id="videoPlayer" class="w-full aspect-video block" controls preload="metadata" playsinline>
-            <source id="videoSource" src="" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="mt-3 flex items-center gap-2 text-xs sm:text-sm font-medium" style="color:var(--sub)">
-          <span class="w-1.5 h-1.5 rounded-full pulse-dot"></span>
-          <span>Now playing in <span id="currentLangLabel" class="font-bold" style="color:var(--navy)">English</span></span>
         </div>
       </div>
 
+      <!-- Main panel -->
+      <div class="panel p-3 sm:p-6">
+        <!-- Strip header -->
+        <div
+          class="strip-header rounded-xl flex items-center gap-2.5 sm:gap-3 px-3.5 sm:px-5 py-3 sm:py-3.5 mb-4 sm:mb-6"
+        >
+          <svg
+            class="w-5 h-5 sm:w-6 sm:h-6 text-white shrink-0"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+            viewBox="0 0 24 24"
+          >
+            <circle cx="12" cy="12" r="9" />
+            <path
+              d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z"
+            />
+          </svg>
+          <p
+            class="text-white font-bold text-[11px] sm:text-sm uppercase tracking-wide leading-tight"
+          >
+            Choose your language in which you want
+            <span style="color: #ff9d8a">induction audio</span> to be played
+          </p>
+        </div>
+
+        <!-- Language Cards -->
+        <div
+          id="languageBoxes"
+          class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-3.5"
+        >
+          <button
+            type="button"
+            data-lang="english"
+            class="lang-card group px-3 py-4 sm:py-5 flex flex-col items-center gap-2.5"
+          >
+            <svg
+              class="globe-icon w-8 h-8 sm:w-9 sm:h-9"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.4"
+              viewBox="0 0 24 24"
+            >
+              <circle cx="12" cy="12" r="9" />
+              <path
+                d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z"
+              />
+            </svg>
+            <span class="text-center leading-tight">
+              <span
+                class="block text-sm sm:text-base font-extrabold"
+                style="color: var(--navy)"
+                >ENGLISH</span
+              >
+              <span
+                class="block text-xs sm:text-sm font-medium"
+                style="color: var(--sub)"
+                >English</span
+              >
+            </span>
+            <span
+              class="play-btn w-full rounded-lg py-1.5 sm:py-2 text-[11px] sm:text-xs font-bold tracking-wide flex items-center justify-center gap-2 mt-1"
+            >
+              PLAY VIDEO
+              <span
+                class="dot w-4 h-4 rounded-full flex items-center justify-center"
+              >
+                <svg
+                  class="w-2 h-2 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </span>
+            </span>
+          </button>
+
+          <button
+            type="button"
+            data-lang="hindi"
+            class="lang-card group px-3 py-4 sm:py-5 flex flex-col items-center gap-2.5"
+          >
+            <svg
+              class="globe-icon w-8 h-8 sm:w-9 sm:h-9"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.4"
+              viewBox="0 0 24 24"
+            >
+              <circle cx="12" cy="12" r="9" />
+              <path
+                d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z"
+              />
+            </svg>
+            <span class="text-center leading-tight">
+              <span
+                class="block text-sm sm:text-base font-extrabold"
+                style="color: var(--navy)"
+                >HINDI</span
+              >
+              <span
+                class="script block text-xs sm:text-sm font-semibold"
+                style="color: var(--sub)"
+                >हिन्दी</span
+              >
+            </span>
+            <span
+              class="play-btn w-full rounded-lg py-1.5 sm:py-2 text-[11px] sm:text-xs font-bold tracking-wide flex items-center justify-center gap-2 mt-1"
+            >
+              PLAY VIDEO
+              <span
+                class="dot w-4 h-4 rounded-full flex items-center justify-center"
+              >
+                <svg
+                  class="w-2 h-2 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </span>
+            </span>
+          </button>
+
+          <button
+            type="button"
+            data-lang="marathi"
+            class="lang-card group px-3 py-4 sm:py-5 flex flex-col items-center gap-2.5"
+          >
+            <svg
+              class="globe-icon w-8 h-8 sm:w-9 sm:h-9"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.4"
+              viewBox="0 0 24 24"
+            >
+              <circle cx="12" cy="12" r="9" />
+              <path
+                d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z"
+              />
+            </svg>
+            <span class="text-center leading-tight">
+              <span
+                class="block text-sm sm:text-base font-extrabold"
+                style="color: var(--navy)"
+                >MARATHI</span
+              >
+              <span
+                class="script block text-xs sm:text-sm font-semibold"
+                style="color: var(--sub)"
+                >मराठी</span
+              >
+            </span>
+            <span
+              class="play-btn w-full rounded-lg py-1.5 sm:py-2 text-[11px] sm:text-xs font-bold tracking-wide flex items-center justify-center gap-2 mt-1"
+            >
+              PLAY VIDEO
+              <span
+                class="dot w-4 h-4 rounded-full flex items-center justify-center"
+              >
+                <svg
+                  class="w-2 h-2 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </span>
+            </span>
+          </button>
+
+          <button
+            type="button"
+            data-lang="gujarati"
+            class="lang-card group px-3 py-4 sm:py-5 flex flex-col items-center gap-2.5"
+          >
+            <svg
+              class="globe-icon w-8 h-8 sm:w-9 sm:h-9"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.4"
+              viewBox="0 0 24 24"
+            >
+              <circle cx="12" cy="12" r="9" />
+              <path
+                d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z"
+              />
+            </svg>
+            <span class="text-center leading-tight">
+              <span
+                class="block text-sm sm:text-base font-extrabold"
+                style="color: var(--navy)"
+                >GUJARATI</span
+              >
+              <span
+                class="script block text-xs sm:text-sm font-semibold"
+                style="color: var(--sub)"
+                >ગુજરાતી</span
+              >
+            </span>
+            <span
+              class="play-btn w-full rounded-lg py-1.5 sm:py-2 text-[11px] sm:text-xs font-bold tracking-wide flex items-center justify-center gap-2 mt-1"
+            >
+              PLAY VIDEO
+              <span
+                class="dot w-4 h-4 rounded-full flex items-center justify-center"
+              >
+                <svg
+                  class="w-2 h-2 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </span>
+            </span>
+          </button>
+
+          <button
+            type="button"
+            data-lang="tamil"
+            class="lang-card group px-3 py-4 sm:py-5 flex flex-col items-center gap-2.5"
+          >
+            <svg
+              class="globe-icon w-8 h-8 sm:w-9 sm:h-9"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.4"
+              viewBox="0 0 24 24"
+            >
+              <circle cx="12" cy="12" r="9" />
+              <path
+                d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z"
+              />
+            </svg>
+            <span class="text-center leading-tight">
+              <span
+                class="block text-sm sm:text-base font-extrabold"
+                style="color: var(--navy)"
+                >TAMIL</span
+              >
+              <span
+                class="script block text-xs sm:text-sm font-semibold"
+                style="color: var(--sub)"
+                >தமிழ்</span
+              >
+            </span>
+            <span
+              class="play-btn w-full rounded-lg py-1.5 sm:py-2 text-[11px] sm:text-xs font-bold tracking-wide flex items-center justify-center gap-2 mt-1"
+            >
+              PLAY VIDEO
+              <span
+                class="dot w-4 h-4 rounded-full flex items-center justify-center"
+              >
+                <svg
+                  class="w-2 h-2 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </span>
+            </span>
+          </button>
+
+          <button
+            type="button"
+            data-lang="telugu"
+            class="lang-card group px-3 py-4 sm:py-5 flex flex-col items-center gap-2.5"
+          >
+            <svg
+              class="globe-icon w-8 h-8 sm:w-9 sm:h-9"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.4"
+              viewBox="0 0 24 24"
+            >
+              <circle cx="12" cy="12" r="9" />
+              <path
+                d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z"
+              />
+            </svg>
+            <span class="text-center leading-tight">
+              <span
+                class="block text-sm sm:text-base font-extrabold"
+                style="color: var(--navy)"
+                >Kannada</span
+              >
+              <span
+                class="script block text-xs sm:text-sm font-semibold"
+                style="color: var(--sub)"
+                >ಕನ್ನಡ </span
+              >
+            </span>
+            <span
+              class="play-btn w-full rounded-lg py-1.5 sm:py-2 text-[11px] sm:text-xs font-bold tracking-wide flex items-center justify-center gap-2 mt-1"
+            >
+              PLAY VIDEO
+              <span
+                class="dot w-4 h-4 rounded-full flex items-center justify-center"
+              >
+                <svg
+                  class="w-2 h-2 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </span>
+            </span>
+          </button>
+        </div>
+
+        <!-- Video Player -->
+        <div id="playerSection" class="mt-6 sm:mt-8">
+          <div
+            id="videoWrap"
+            class="rounded-xl overflow-hidden bg-black border-2"
+            style="border-color: var(--navy)"
+          >
+            <video
+              id="videoPlayer"
+              class="w-full aspect-video block"
+              controls
+              preload="metadata"
+              playsinline
+            >
+              <source id="videoSource" src="" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div
+            class="mt-3 flex items-center gap-2 text-xs sm:text-sm font-medium"
+            style="color: var(--sub)"
+          >
+            <span class="w-1.5 h-1.5 rounded-full pulse-dot"></span>
+            <span
+              >Now playing in
+              <span
+                id="currentLangLabel"
+                class="font-bold"
+                style="color: var(--navy)"
+                >English</span
+              ></span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer strip -->
+      <div
+        class="mt-6 sm:mt-8 rounded-xl overflow-hidden"
+        style="background: var(--navy)"
+      >
+        <div
+          class="grid grid-cols-2 sm:grid-cols-4 gap-y-3 px-4 sm:px-6 py-4 text-white text-[11px] sm:text-xs"
+        >
+          <div>
+            <p
+              class="font-bold uppercase tracking-wide"
+              style="color: var(--red)"
+            >
+              Quality
+            </p>
+            <p class="text-white/70">Doing it right.</p>
+          </div>
+          <div>
+            <p class="font-bold uppercase tracking-wide" style="color: #7db8ff">
+              Health
+            </p>
+            <p class="text-white/70">Protecting lives.</p>
+          </div>
+          <div>
+            <p
+              class="font-bold uppercase tracking-wide"
+              style="color: var(--red)"
+            >
+              Safety
+            </p>
+            <p class="text-white/70">Preventing harm.</p>
+          </div>
+          <div>
+            <p class="font-bold uppercase tracking-wide" style="color: #8fd694">
+              Environment
+            </p>
+            <p class="text-white/70">Protecting our planet.</p>
+          </div>
+        </div>
+        <div
+          class="text-center text-white text-[11px] sm:text-xs font-semibold py-2.5 border-t border-white/15"
+        >
+          TOGETHER, LET'S BUILD A SAFER TOMORROW. &nbsp;|&nbsp;
+          <span style="color: var(--red)">ZERO HARM. ALWAYS.</span>
+        </div>
+      </div>
     </div>
 
-    <!-- Footer strip -->
-    <div class="mt-6 sm:mt-8 rounded-xl overflow-hidden" style="background:var(--navy)">
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-y-3 px-4 sm:px-6 py-4 text-white text-[11px] sm:text-xs">
-        <div>
-          <p class="font-bold uppercase tracking-wide" style="color:var(--red)">Quality</p>
-          <p class="text-white/70">Doing it right.</p>
-        </div>
-        <div>
-          <p class="font-bold uppercase tracking-wide" style="color:#7db8ff">Health</p>
-          <p class="text-white/70">Protecting lives.</p>
-        </div>
-        <div>
-          <p class="font-bold uppercase tracking-wide" style="color:var(--red)">Safety</p>
-          <p class="text-white/70">Preventing harm.</p>
-        </div>
-        <div>
-          <p class="font-bold uppercase tracking-wide" style="color:#8fd694">Environment</p>
-          <p class="text-white/70">Protecting our planet.</p>
-        </div>
-      </div>
-      <div class="text-center text-white text-[11px] sm:text-xs font-semibold py-2.5 border-t border-white/15">
-        TOGETHER, LET'S BUILD A SAFER TOMORROW. &nbsp;|&nbsp; <span style="color:var(--red)">ZERO HARM. ALWAYS.</span>
-      </div>
-    </div>
+    <script>
+      // ------------------------------------------------------------------
+      // Map each language to its video file / URL.
+      // ------------------------------------------------------------------
+      const videoSources = {
+        hindi: {
+          src: "https://res.cloudinary.com/wq7ag0mk/video/upload/v1787213598/Hindi.mp4",
+          label: "Hindi",
+        },
+        english: {
+          src: "https://res.cloudinary.com/wq7ag0mk/video/upload/v1787214854/English.mp4",
+          label: "English",
+        },
+        marathi: {
+          src: "https://res.cloudinary.com/wq7ag0mk/video/upload/v1787221363/Marathi.mp4",
+          label: "Marathi",
+        },
+        gujarati: {
+          src: "https://res.cloudinary.com/wq7ag0mk/video/upload/v1787221951/Gujrati.mp4",
+          label: "Gujarati",
+        },
+        tamil: {
+          src: "https://res.cloudinary.com/wq7ag0mk/video/upload/v1787220719/Tamil.mp4",
+          label: "Tamil",
+        },
+        telugu: {
+          src: "https://res.cloudinary.com/wq7ag0mk/video/upload/v1787219839/Telgu.mp4",
+          label: "Telugu",
+        },
+      };
 
-  </div>
+      const cards = document.querySelectorAll(".lang-card");
+      const video = document.getElementById("videoPlayer");
+      const source = document.getElementById("videoSource");
+      const wrap = document.getElementById("videoWrap");
+      const langLabel = document.getElementById("currentLangLabel");
+      const playerSect = document.getElementById("playerSection");
 
-<script>
-  // ------------------------------------------------------------------
-  // Map each language to its video file / URL.
-  // ------------------------------------------------------------------
-  const videoSources = {
-    hindi:    { src: "https://res.cloudinary.com/wq7ag0mk/video/upload/v1787213598/Hindi.mp4",   label: "Hindi"    },
-    english:  { src: "https://res.cloudinary.com/wq7ag0mk/video/upload/v1787214854/English.mp4", label: "English"  },
-    marathi:  { src: "https://res.cloudinary.com/wq7ag0mk/video/upload/v1787221363/Marathi.mp4", label: "Marathi"  },
-    gujarati: { src: "https://res.cloudinary.com/wq7ag0mk/video/upload/v1787221951/Gujrati.mp4",  label: "Gujarati" },
-    tamil:    { src: "https://res.cloudinary.com/wq7ag0mk/video/upload/v1787220719/Tamil.mp4",    label: "Tamil"    },
-    telugu:   { src: "https://res.cloudinary.com/wq7ag0mk/video/upload/v1787219839/Telgu.mp4",    label: "Kannada"   },
-  };
+      function setActiveCard(langKey) {
+        cards.forEach((c) =>
+          c.classList.toggle("active", c.dataset.lang === langKey),
+        );
+      }
 
-  const cards      = document.querySelectorAll('.lang-card');
-  const video      = document.getElementById('videoPlayer');
-  const source     = document.getElementById('videoSource');
-  const wrap       = document.getElementById('videoWrap');
-  const langLabel  = document.getElementById('currentLangLabel');
-  const playerSect = document.getElementById('playerSection');
+      function loadVideo(langKey, autoplay = false) {
+        const data = videoSources[langKey];
+        if (!data) return;
 
-  function setActiveCard(langKey) {
-    cards.forEach(c => c.classList.toggle('active', c.dataset.lang === langKey));
-  }
+        wrap.classList.add("fading");
+        source.src = data.src;
+        video.load();
+        langLabel.textContent = data.label;
+        setActiveCard(langKey);
 
-  function loadVideo(langKey, autoplay = false) {
-    const data = videoSources[langKey];
-    if (!data) return;
+        setTimeout(() => wrap.classList.remove("fading"), 180);
 
-    wrap.classList.add('fading');
-    source.src = data.src;
-    video.load();
-    langLabel.textContent = data.label;
-    setActiveCard(langKey);
+        if (autoplay) {
+          video.play().catch(() => {});
+          playerSect.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }
 
-    setTimeout(() => wrap.classList.remove('fading'), 180);
+      cards.forEach((card) => {
+        card.addEventListener("click", () =>
+          loadVideo(card.dataset.lang, true),
+        );
+      });
 
-    if (autoplay) {
-      video.play().catch(() => {});
-      playerSect.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-  }
-
-  cards.forEach(card => {
-    card.addEventListener('click', () => loadVideo(card.dataset.lang, true));
-  });
-
-  // Load default (English) video on first page load, no autoplay
-  loadVideo('english', false);
-</script>
-
-</body>
+      // Load default (English) video on first page load, no autoplay
+      loadVideo("english", false);
+    </script>
+  </body>
 </html>
